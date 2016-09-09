@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+          public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int T = scan.nextInt();
+		int flag = 0;
+		for(int b=0;b<T;b++){
+			int N = scan.nextInt();
+			int arr[] = new int [N];
+			int sumLeft[] = new int [arr.length];
+			int sumRight[] = new int [arr.length];
+			
+			for(int j=0;j<N;j++){
+				arr[j] = scan.nextInt();
+			}
+		//	for(int z=0;z<N;z++){
+				for(int p=1;p<N;p++){
+					sumLeft[0] = 0;
+					sumLeft[p] = sumLeft[p-1]+arr[p-1];
+				}
+				for(int q=N-2;q>=0;q--){
+					sumRight[N-1] = 0;
+					sumRight[q] = sumRight[q+1]+arr[q+1];
+				}
+				for(int d=0;d<N;d++){
+					if(sumLeft[d]==sumRight[d]){
+						
+						flag=1;
+					}
+					
+				}
+				if(flag==1){
+					System.out.println("YES");
+				}
+				else{
+					System.out.println("NO");
+
+				}
+				flag=0;
+			}
+		
+		
+	}
+}

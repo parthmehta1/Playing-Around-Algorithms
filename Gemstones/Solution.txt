@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		int count = 0;
+		int result = 0;
+		String arr[] = new String[n];
+		for(int i=0;i<n;i++){
+			arr[i] = scan.next();
+		}
+			for(char c = 'a';c<='z';c++){
+				for(int i=0;i<n;i++){
+				if(arr[i].contains(Character.toString(c))){
+					
+					count++;
+				}
+			}
+				if(count==n){
+					result++;
+                    count=0;
+				}
+		}
+			System.out.println(result);
+			
+	}
+	
+
+}
+ 

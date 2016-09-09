@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+         Scanner scan = new Scanner(System.in);
+     	int n = scan.nextInt();
+     	int array1[] = new int [n];
+     	for(int i=0;i<n;i++){
+     		array1[i] = scan.nextInt();
+     	}
+     	int m = scan.nextInt();
+     	int array2[] = new int[m];
+     	for(int i=0;i<m;i++){
+     		array2[i] = scan.nextInt();
+     	}
+     	Arrays.sort(array1);
+     	Arrays.sort(array2);
+     	int array3[] = new int [100];
+     	//int j=0;
+     	int k=0;
+     //	while(j<m){
+     		//while(k<100){
+     	for(int i=0,j=0;i<n &&j<m;){
+     		if(array2[j]==array1[i]){
+     		    i+=1;
+     			j+=1;
+     		}
+     		else{
+     			
+     			array3[k]=array2[j];
+     		//	System.out.println(array3[k]);
+     			k++;
+     			j+=1;
+     		}
+     	}
+     
+     	for(int p=0;p<99;){
+     		if(array3[p]==array3[p+1]){
+     			p++;
+     		}
+     		else{
+     			System.out.print(array3[p]+ " ");
+     			p++;
+     		}
+     	}
+     	if(array3[98]!=array3[99]){
+				System.out.print(array3[98]);
+			}
+     }
+ }

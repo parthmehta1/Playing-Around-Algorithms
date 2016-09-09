@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+   static int n,m,matrix[][];
+	public static int grid(int i,int j){
+		
+		if((i<0) || (j<0) || (i>=n) ||(j>=m) ||(matrix[i][j]==0)||matrix[i][j]==-1){
+			return 0;
+		}
+		matrix[i][j] = -1;
+		return (1+ grid(i-1,j-1)+grid(i-1,j)+grid(i-1,j+1)+grid(i,j-1)+grid(i,j+1)+grid(i+1,j-1)+grid(i+1,j)+grid(i+1,j+1));
+	}
+    public static void main(String[] args){
+    //	ConnectedCellsGrid cc = new ConnectedCellsGrid();
+    	Scanner scan = new Scanner(System.in);
+      	n = scan.nextInt();
+      	m = scan.nextInt();
+      	matrix = new int [n][m];
+      	for(int i=0;i<n;i++){
+      		for(int j=0;j<m;j++){
+      			matrix[i][j] = scan.nextInt();
+      		}
+      	}
+/*  	for(int i=0;i<n;i++){
+      		for(int j=0;j<m;j++){
+      		System.out.print(matrix[i][j]+ " ");	
+      		}
+      		System.out.println();
+      		}*/
+    	int count=0;
+    	for(int i=0;i<n;i++){
+    		for(int j=0;j<m;j++){
+    			if(matrix[i][j]==1){
+    				count = Math.max(count,grid(i,j));
+    			}
+    			
+    		}
+    	}
+    	System.out.println(count);
+    		}
+    }
